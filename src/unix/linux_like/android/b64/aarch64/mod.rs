@@ -48,6 +48,20 @@ s! {
         __unused4: ::c_uint,
         __unused5: ::c_uint,
     }
+
+    pub struct user_regs_struct {
+        pub regs: [u64; 31],
+        pub sp: u64,
+        pub pc: u64,
+        pub pstate: u64,
+    }
+
+    pub struct user_fpsimd_struct {
+        pub vregs: [[i128; 16]; 2],
+        pub fpsr: u32,
+        pub fpcr: u32,
+    }
+
 }
 
 pub const O_DIRECT: ::c_int = 0x10000;
