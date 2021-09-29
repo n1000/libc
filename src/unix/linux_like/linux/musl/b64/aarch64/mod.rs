@@ -49,6 +49,19 @@ s! {
         __unused: [::c_uint; 2],
     }
 
+    pub struct user_regs_struct {
+        pub regs: [::c_ulonglong; 31],
+        pub sp: ::c_ulonglong,
+        pub pc: ::c_ulonglong,
+        pub pstate: ::c_ulonglong,
+    }
+
+    pub struct user_fpsimd_struct {
+        pub vregs: [[i64; 2]; 16],
+        pub fpsr: ::c_uint,
+        pub fpcr: ::c_uint,
+    }
+
     pub struct ipc_perm {
         pub __ipc_perm_key: ::key_t,
         pub uid: ::uid_t,
